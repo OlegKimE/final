@@ -69,6 +69,10 @@ angular
       // console.log(id)
       var url = '/api/posts/' + id;
       var user = $cookies.getObject('user');
+
+      if (user) {
+        $scope.user = user;
+      }
       // console.log(user._id);
       $http.get(url)
         .then(function(response) {
