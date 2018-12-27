@@ -39,9 +39,10 @@
     </div>
     <div class="feed-comment">
       <div class="feed_comments" data-ng-repeat="comment in comments">
-        <img data-ng-if="user.avatarPath" src="{{user.avatarPath}}" class="comment-avatar">
-        <img data-ng-if="!user.avatarPath" src="/avas/default.png" class="comment-avatar">
+        <img data-ng-if="comment.author.avatarPath" src="{{comment.author.avatarPath}}" class="comment-avatar">
+        <img data-ng-if="!comment.author.avatarPath" src="/avas/default.png" class="comment-avatar">
         <div class="feed_coments_text">{{comment.text}}</div>
+        <span class="comment-item-delete-btn" data-ng-click="deleteComment(comment._id, currentPost)" data-ng-if="comment.author._id == user._id">X</span>
       </div>
     </div>
     <div class="feed-comments-send" ng-hide="!$root.authenticated">
