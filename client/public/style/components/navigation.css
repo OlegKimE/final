@@ -1,0 +1,135 @@
+.header_mobile{
+  display: none;
+}
+.navig{
+  display: flex;
+  height: 50px;
+  width: 100%;
+}
+.navig-l{
+  width: 20%;
+  cursor: pointer;
+  outline: none;
+}
+.logo{
+  width: 100px;
+  height: 50px;
+  outline: none;
+}
+.navig-r{
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+  align-items: center;
+}
+ul {
+    display: flex;
+}
+ul li {
+    position: relative;
+    list-style: none;
+    outline: none;
+}
+ul li a {
+    position: relative;
+    width: 200px;
+    display: block;
+    color: #FA430E;
+    line-height: 30px;
+    text-align: center;
+    text-decoration: none;
+  text-transform: uppercase;
+    transition: .5s;
+    box-sizing: border-box;
+    outline: none;
+}
+ul li a span {
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    background-color: #FA430E;
+    z-index: -1;
+    transform-origin: top;
+    transform: scaleY(0);
+    transition: transform .5s;
+}
+ul li a.active {
+  background-color: #FA430E;
+    color: #000;
+}
+ul li a:hover {
+    color: #000;
+    text-decoration: none;
+}
+ul li a:hover span {
+    transform-origin: bottom;
+    transform: scaleY(1);
+}
+ul li a span:nth-child(1) {
+    left: 0;
+    transition-delay: 0s;
+}
+ul li a span:nth-child(2) {
+    left: 25%;
+    transition-delay: 0.15s;
+}
+ul li a span:nth-child(3) {
+    left: 50%;
+    transition-delay: 0.3s;
+}
+ul li a span:nth-child(4) {
+    left: 75%;
+    transition-delay: 0.45s;
+}
+@media ( max-width: 768px ){
+.navig{
+	display: none;
+}
+.header_mobile{
+  position: relative;
+  display: block;
+}
+.header_mobile_top{
+  display: flex;
+  height: 54px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background-image: url(../../image/images.jpg);
+}
+.header_mobile_top > .header_logo{
+  color: #fff;
+}
+.header_mobile_menu{
+  width: 40px;
+  padding-right: 10px;
+}
+.header_mobile_menu > img{
+  width: 100%;
+}
+.header_mobile_nav{
+  width: 100%;
+  position: absolute;
+  top: 54px;
+  left: 0;
+  z-index: 1;
+  background-image: url(../../image/images.jpg);
+}
+ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header_mobile_nav > .nav-item{
+  width: 100%;
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+}
+@media (max-width: 449px){
+.navig{
+	display: none;
+}
+}

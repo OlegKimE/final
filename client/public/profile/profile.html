@@ -1,0 +1,117 @@
+<link rel="stylesheet" type="text/css" href="./style/components/profile.css">
+<link rel="stylesheet" type="text/css" href="./style/components/comments.css">
+<div class="baza" id="profileComponent">
+  <div class="post">
+    <div class="post_title">Мои посты</div>
+    <button class="button_center1" type="button" data-ng-click="showAddModal()">Создать новый пост</button>
+    <div class="forma1" ng-app="">
+      <li class="format1" data-ng-repeat="post in posts | startFrom:currentPage*pageSize | limitTo:pageSize">
+        <div class="post_up">
+          <img class="img_post1" data-ng-src="{{post.image}}" alt="Картинка поста" data-ng-if="post.image">
+        </div>
+        <div class="post_buttom">
+          <p>{{post.title}}</p>
+          <button type="button" class="button_delete" data-ng-click="deletePost(post)"><img class="bimg" src='image/bin.png'> Delete </button><br>
+          <button type="button" class="button_redactor" data-ng-click="showEditModal(post)"><img class="bimg" src='image/edit.png'> Редактировать </button>
+          <button type="button" class="button_more" ui-sref="postDetail({postID: post._id})"><img class="bimg" src='image/information.png'> Подробнее...</button>
+          </div>
+      </li>
+    </div>
+    <div class="row1">
+      <button class="pull-left btn btn-primary btn-sm" ng-disabled="firstPage()" ng-click="pageBack()">Назад</button>
+      <span>{{currentPage+1}} из {{numberOfPages()}}</span>
+      <button class="pull-right  btn btn-primary btn-sm" ng-disabled="lastPage()" ng-click="pageForward()">Вперед</button>
+    </div>
+  </div>
+  <div class="user-center">
+    <div class="post_title">Имя пользователя Ник</div>
+    <div class="user-foto">
+      <div class="user-ava">
+        <img class="ava-size" src="{{avatarPath}}" alt="Ava">
+      </div>
+      <div class="user-rung">
+        <div class="avatarka">
+          <input class="but_img_ava" type="file" ng-file-model="avatarFile">
+          <button class="button_save2" type="button" data-ng-click="saveAvatar(avatarFile)"> Save Avatar </button>
+        </div>
+        <button type="button" class="but_img_ava1" data-ng-click="">сообщение</button>
+        <button type="button" class="but_img_ava1" data-ng-click="">видеочат</button>
+        <button type="button" class="but_img_ava1" data-ng-click="">добавить пользователя</button>
+      </div>
+      <div class="user-reg" data-ng = "user">
+        <div class="user-reg-info"><p>Имя<br> {{user.firstName}}</p></div>
+        <div class="user-reg-info"><p>Фамилия<br> {{user.lastName}}</p></div>
+        <div class="user_reg-info"><p>Почта<br> {{user.email}}</p></div>
+      </div>
+    </div>
+    <div class="comments">
+      <div class="comments-post">
+        <div class=comments-postid>
+
+        </div>
+      </div>
+      <div class="comments-text">
+        <div class="comments-search">
+          <textarea class="search" type="text" placeholder="Username" id="username" data-ng-model="username"></textarea>
+          <button class="button_search" id="send_username" data-ng-click="sendUsername(username)"><img src="image/search.png" alt=""></button>
+        </div>
+        <div class="comments-text-user">
+          <div class="comments-get">
+            <section id="chatroom">
+              <section id="feedback"></section>
+            </section>
+          </div>
+          <div class="comments-send">
+            <textarea class="send" type="text" placeholder="Chat" id="message" data-ng-model="chatMessage"></textarea>
+            <button class="button_send" id="send_message" data-ng-click="sendMessage(chatMessage)">Отпр</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="user-info">
+    <div class="post_title" >Персональные данные</div>
+    <div class="post-content" data-ng-repeat="post in posts | startFrom:currentPage*pageSize | limitTo:pageSize">
+      <p>{{post.content}}</p>
+    </div>
+  </div>
+  <!-- The Modal -->
+  <div id="myModal" class="modal" data-ng-if="showAddModalFlag == true">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close" data-ng-click="removeAddModal()">&times;</span>
+        <h2>Modal Header</h2>
+      </div>
+      <form class="modal-body" action="/action_page.php">
+        <input class="contact_input_1" data-ng-model="postTitle" placeholder="Title" type="text" name="name">
+        <textarea class="contact_textarea" data-ng-model="postContent" placeholder="Content"></textarea>
+        <input class="but_img" type="file" ng-file-model="imageFile">
+        <input class="button_reset" type="reset" value="Reset">
+      </form>
+      <div class="modal-footer">
+        <button class="button_save" data-ng-click="savePost(postTitle, postContent, imageFile)"> SAVE </button>
+      </div>
+    </div>
+  </div>
+  <!-- The Modal -->
+  <div class="modal" data-ng-if="showEditModalFlag === true ">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close" data-ng-click="removeEditModal()">&times;</span>
+        <h2>Редактировать пост {{Post.title}}</h2>
+      </div>
+      <form class="modal-body" action="/action_page.php">
+        <input class="contact_input_1" data-ng-model="editTitle" placeholder="Название" type="text" name="name">
+        <textarea class="contact_textarea" data-ng-model="editContent" placeholder="Контент"></textarea>
+        <input class="button_reset" type="reset" value="Reset">
+      </form>
+      <div class="modal-footer">
+        <button class="button_save" data-ng-click="updatePost(editTitle, editContent, editPostId)"> SAVE </button>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,74 @@
+<link rel="stylesheet" type="text/css" href="./style/components/moderator.css">
+<link rel="stylesheet" type="text/css" href="./style/components/feed.css">
+<div class="baza" href="/moderator">
+  <button class="button_center" type="button" data-ng-click="showAddModalEvent()">Создать новый пост</button>
+ <ul class="forma" ng-app="">
+    <li class="format" data-ng-repeat="x in posts">
+      <div class = "post_left">
+          <p>{{x.title}}</p>
+          <p>{{x._id}}</p>
+          <div class="moderator-content">{{x.content}}</div>
+          <p>{{x.date}}</p>
+
+      </div>
+      <div class="post_right">
+        <img class="img_post-2" data-ng-src="{{x.image}}" alt="Картинка поста" data-ng-if="x.image">
+        <button type="button" class="button_delete" data-ng-click="deletePost(x._id)"><img class="bimg" src='../../image/bin.png'> Delete </button>
+        <button type="button" class="button_redactor" data-ng-click="showEditModalEvent(x)"><img class="bimg" src='../../image/edit.png'> Редактировать </button>
+        <button type="button" class="button_more" ui-sref="postDetail({postID: x._id})"><img class="bimg" src='../../image/information.png'> Подробнее...</button>
+      </div>
+      <hr>
+    </li>
+    </ul>
+    <div class="row">
+      <div class="count">
+        <div  align="center" class="count-num" >
+          <div data-ng-repeat="page in pages" data-ng-class="{'active page-item': page.active}">
+            <button class="page-link active"  data-ng-click="changePage(page.name)">{{page.name}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal" ng-if="showAddModal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close" data-ng-click="closeAddModalEvent()">&times;</span>
+      <h2>Modal Header</h2>
+    </div>
+    <form class="modal-body" action="/action_page.php">
+        <input class="contact_input_1" data-ng-model="title" placeholder="Title" type="text" name="name">
+        <input class="contact_input_2" data-ng-model="author" placeholder="Author" type="text" name="name">
+        <textarea class="contact_textarea" data-ng-model="content" placeholder="Content"></textarea>
+        <input  class = "but_img" type="file" ng-file-model="image">
+        <input class="button_reset" type="reset" value="Reset">
+    </form>
+    <div class="modal-footer">
+      <button class="button_save" data-ng-click="addNewPost(title, author, content, image)"> SAVE </button>
+    </div>
+  </div>
+</div>
+<!-- The Modal -->
+<div  class="modal" data-ng-if="showEditModal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close" data-ng-click="closeEditModalEvent()">&times;</span>
+      <h2>Редактировать пост {{selectedPost.title}}</h2>
+    </div>
+    <form class="modal-body" action="/action_page.php">
+      <input class="contact_input_1" data-ng-model="selectedPost.title" placeholder="Название" type="text" name="name">
+      <input class="contact_input_2" data-ng-model="selectedPost.author" placeholder="Автор" type="text" name="name">
+      <textarea class="contact_textarea" data-ng-model="selectedPost.content" placeholder="Контент"></textarea>
+      <input class="button_reset" type="reset" value="Reset">
+    </form>
+    <div class="modal-footer">
+      <button class="button_save" data-ng-click="editPost(selectedPost._id, selectedPost.title, selectedPost.author, selectedPost.content)"> SAVE </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<link rel="stylesheet" type="text/css" href="./style/components/post-detail.css">
+<section class="detail" href="/post-detail">
+  <div class="detail-left">
+    <div class="det-l">
+      <div class="det-l-user">Автор поста<p>{{user.firstName}} {{user.lastName}}</p></div>
+      <img class="img_post1" data-ng-src="{{post.image}}" alt="Картинка поста" data-ng-if="post.image">
+      <p>{{post.title}}</p>
+      <p>{{post.date}}</p>
+      <div class="likes-container">
+        <!-- <div class="laik">
+            <div class="laik-count">
+            <button class="laik-plus" ng-show="liked == true" data-ng-click="deleteLike()"><img src="../../image/like.png" alt=""></button>
+            <button class="laik-plus" ng-show="liked == false" data-ng-click="addLike()"><img src="../../image/like.png" alt=""></button>
+            <i  class="num-count">{{likes}}</i>
+          </div>
+          <div class="laik-count">
+            <button class="laik-minus" ng-show="dizliked == true" data-ng-click="deleteDizlike()"><img src="../../image/dislike.png" alt=""></button>
+            <button class="laik-minus" ng-show="dizliked == false" data-ng-click="addDizlike()"><img src="../../image/dislike.png" alt=""></button>
+            <i  class="num-count">{{dizlikes}}</i>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <div class="detail-center">
+    <video src="../video/IRONMAN.mp4" width="100%" height="50%" controls="controls"></video>
+    <div class="detail-center-content">
+      <p>{{post.content}}</p>
+    </div>
+  </div>
+  <div class="detail-right">
+  <h3>Комментарии</h3>
+  <div class="list-group-comment">
+    <div ng-repeat="comment in post.comments" class="list-group-item">
+      <div class="comment-item-container">
+        <img data-ng-if="user.avatarPath" src="{{user.avatarPath}}" class="comment-avatar">
+        <img data-ng-if="!user.avatarPath" src="/avas/default.png" class="comment-avatar">
+        <div class="comment-item-details">{{comment.text}}
+          <!-- <p>{{comment.createDate | date: 'yyyy-MM-dd HH:mm'}}</p> -->          
+        </div>
+        <span class="comment-item-delete-btn" data-ng-click="deleteComment(comment)" data-ng-if="comment.author == user._id">X</span>
+      </div>
+    </div>
+  </div>
+  <div class="leave-comment-container" ng-hide="!$root.authenticated">
+    <textarea class="leave-comment" placeholder="Leave comment" ng-model="commentText"></textarea>
+    <button type="button" class="btn-primary" data-ng-click="saveComment(commentText)">Leave comment</button>
+  </div>
+</div>
+</<section>

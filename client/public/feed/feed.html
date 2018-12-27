@@ -1,0 +1,74 @@
+<link rel="stylesheet" type="text/css" href="./style/components/feed.css">
+
+<div class="feed_head" href="/feed">
+  <div class="search-post">
+    <input type="text" data-ng-model="searchText">
+    <button type="button" data-ng-click="search(searchText)" class="btn btn-primary">Поиск</button>
+  </div>
+<section class="head-forma">
+  <div class="forma-detail">
+    <section class="post-win">
+    <div class="post">
+      <div class="post-avtor">Автор поста
+        <p>{{user.firstName}} {{user.lastName}}</p>
+        Киноактер
+        <p>{{post.title}}</p>
+        <p>{{post.date}}</p>
+      </div>
+      <div class="post-info">Биография
+        <p>{{post.content}}</p>
+      </div>
+      <div class="head-post-image">
+        <div class="posts-i">
+          <img class="post-img" data-ng-src="{{post.image}}" alt="Картинка поста" data-ng-if="post.image">
+        </div>
+      </div>
+    </div>
+    <div class="laik">
+      <span class="count-renderer">7&nbsp;777&nbsp;777 просмотров</span>
+      <div class="laik-count">
+        <button class="laik-plus" ng-show="liked == true" data-ng-click="deleteLike()"><img src="../../image/like.png" alt=""></button>
+        <button class="laik-plus" ng-show="liked == false" data-ng-click="addLike()"><img src="../../image/like.png" alt=""></button>
+        <i  class="num-count">{{likes}}</i>
+      </div>
+      <div class="laik-count">
+        <button class="laik-minus" ng-show="dizliked == true" data-ng-click="deleteDizlike()"><img src="../../image/dislike.png" alt=""></button>
+        <button class="laik-minus" ng-show="dizliked == false" data-ng-click="addDizlike()"><img src="../../image/dislike.png" alt=""></button>
+        <i  class="num-count">{{dizlikes}}</i>
+      </div>
+    </div>
+    <div class="feed-comment">
+      <div class="feed_comments" data-ng-repeat="comment in comments">
+        <img data-ng-if="user.avatarPath" src="{{user.avatarPath}}" class="comment-avatar">
+        <img data-ng-if="!user.avatarPath" src="/avas/default.png" class="comment-avatar">
+        <div class="feed_coments_text">{{comment.text}}</div>
+      </div>
+    </div>
+    <div class="feed-comments-send" ng-hide="!$root.authenticated">
+      <textarea class="feed-send" type="text" placeholder="Комментарий" data-ng-model="commentText"></textarea>
+      <button class="feed-button_send" data-ng-click="saveComment(commentText)">Отпр</button>
+    </div>
+    </section>
+  </div>
+  <div class="forma-1" ng-app="">
+      <div class="format-1" ng-repeat="x in posts" type="button" data-ng-click="addPost_id(x._id)">
+        <div class="format-1-2">
+          <img class="img_post" data-ng-src="{{x.image}}" alt="Картинка поста" data-ng-if="x.image">
+          <div class="feed-info">
+            <div class="text1"><p>Актер: {{x.title}}</p></div>
+            <!-- <div class="text1"><p>Актер: {{x.content}}</p></div> -->
+            <div class="text1"><p>Автор поста: {{x.author.firstName}} {{x.author.lastName}}</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="count">
+        <div  align="center" class="count-num" >
+          <div data-ng-repeat="page in pages" data-ng-class="{'active page-item': page.active}">
+            <button class="page-link"  data-ng-click="changePage(page.name)">{{page.name}}</button>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+
+</div>

@@ -1,0 +1,105 @@
+<link rel="stylesheet" type="text/css" href="./style/components/navigation.css">
+
+<div class="header_mobile" >
+  <div class="header_mobile_top" >
+    <div class="header_logo" >
+      <a><img class="logo" src='../../image/logo_1.jpg'<a/>
+    </div>
+    <div class="header_mobile_menu" type="button" data-ng-click="showMenuEvent()" data-ng-click="closeMenuEvent()">
+      <img src="../../image/menu.png" id="menuImg">
+    </div>
+  </div>
+  <div class="header_mobile_nav" id="menu" ng-if="showMenuModal">
+    <ul>
+      <li class="menu-r">
+          <a class="nav-item" ui-sref = "index" data-ng-if = "$root.authenticated"  ui-sref-active="active" href="#">Главная страница
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          <a/>
+      </li>
+      <li>
+          <a class="nav-item" ui-sref = "login" data-ng-if="!$root.authenticated"  ui-sref-active="active"  href="#">Войти
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+          </a>
+      </li>
+      <li>
+          <a class="nav-item" ui-sref= "profile" data-ng-if = "$root.authenticated"  ui-sref-active="active" href="#">Профиль
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+          </a>
+      </li>
+      <li>
+          <a class="nav-item" ui-sref = "moderator" data-ng-if = "$root.authenticated"  ui-sref-active="active" href="#">Aдмин
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+          </a>
+      </li>
+      <li>
+          <a class="nav-item" data-ng-if = "$root.authenticated" data-ng-click="logout()"  ui-sref-active="active" href="#">Выйти
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+          </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<nav class="navig">
+  <div class="navig-l">
+  <a ui-sref = "index"><img class="logo" src='../../image/logo_1.jpg'<a/>
+  </div>
+  <div class="navig-r">
+  <ul>
+    <li class="menu-r">
+        <a class="nav-item" ui-sref = "index" data-ng-if = "$root.authenticated"  ui-sref-active="active" href="#">Главная страница
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        <a/>
+    </li>
+    <li>
+        <a class="nav-item" ui-sref = "login" data-ng-if="!$root.authenticated"  ui-sref-active="active"  href="#">Войти
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </a>
+    </li>
+    <li>
+        <a class="nav-item" ui-sref= "profile" data-ng-if = "$root.authenticated"  ui-sref-active="active" href="#">Профиль
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </a>
+    </li>
+    <li>
+        <a class="nav-item" ui-sref = "moderator" data-ng-if = "$root.authenticated"  ui-sref-active="active" href="#">Aдмин
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </a>
+    </li>
+    <li>
+        <a class="nav-item" data-ng-if = "$root.authenticated" data-ng-click="logout()"  ui-sref-active="active" href="#">Выйти
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </a>
+    </li>
+  </ul>
+  </div>
+</nav>

@@ -1,0 +1,149 @@
+.detail{
+  display: flex;
+  padding: 10px 15px;
+  height: 480px;
+  background-image: url('../../image/images8.jpg');
+}
+.detail-left{
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #FA430E;
+  text-align: center;
+  color: #fff;
+}
+.det-l{
+  margin: 3px;
+}
+.detail-center{
+  width: 33%;
+  border-top: 2px solid #FA430E;
+  border-bottom: 2px solid #FA430E;
+}
+.detail-center-content{
+  height: 48%;
+  border-top:  2px solid #FA430E;
+  overflow-y: scroll;
+  color: #fff;
+}
+.detail-right{
+  width: 33%;
+  border: 2px solid #FA430E;
+  text-align: center;
+  color: #fff;
+}
+.list-group-comment{
+  height: 377px;
+  padding: 0px;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+.list-group-item{
+  display: flex;
+  padding-bottom: 5px;
+}
+.comment-item-container{
+  display: flex;
+  width: 100%;
+}
+.comment-avatar{
+  width: 40px;
+  height: 40px;
+}
+.comment-item-details{
+  width: 80%;
+}
+.comment-item-delete-btn{
+  display: flex;
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 30px;
+  border: 1px solid #FA430E;
+  background-color:  #FA430E;
+}
+.leave-comment-container{
+  height: 40px;
+  display: flex;
+}
+.leave-comment{
+  width: 90%;
+}
+.btn-primary{
+  height: 40px;
+}
+.img_post1{
+  width: 250px;
+  height: 260px;
+}
+.laik{
+  font-size: 12px;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: #fff;
+}
+.count-renderer{
+  width: 120px;
+  padding: 5px 5px;
+}
+.laik-count{
+  display: flex;
+  width: 80px;
+  padding: 5px 5px;
+  outline: none;
+  align-items: center;
+}
+.laik-plus{
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  background-color: rgb(86, 99, 153);
+}
+.laik-minus{
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  outline: none;
+  cursor: pointer;
+  background-color: rgb(86, 99, 153);
+}
+.num-count{
+  width: 50px;
+  padding-left: 10px;
+  font-size: 20px;
+  color: #fff;
+}
+@media ( max-width: 768px){
+.img_post1{
+  width: 230px;
+}
+
+}
+@media (max-width: 449px){
+.detail{
+  flex-wrap: wrap;
+  height: auto;
+}
+.detail-left{
+  width: 100%;
+}
+.detail-center{
+  width: 100%;
+  height: 100%;
+  border-left: 2px solid #FA430E;
+  border-right: 2px solid #FA430E;
+}
+.detail-center-content{
+  height: 400px;
+}
+.detail-right{
+  width: 100%;
+}
+}

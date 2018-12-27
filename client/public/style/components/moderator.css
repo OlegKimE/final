@@ -1,0 +1,233 @@
+.baza{
+  background-image: url(../../image/images3.jpg);
+  display: flex;
+  flex-direction: column;
+  padding: 0px 20px;
+  padding-top: 10px;
+  height: 485px;
+  width: auto;
+  align-items: center;
+}
+.button_center{
+  text-align: center;
+  margin: 35px 40%;
+  width: 300px;
+  height: 30px;
+  border: 1px solid #000;
+  cursor: pointer;
+}
+.button_center:hover{
+  background-color: rgb(10, 48, 47);
+}
+.bimg{
+  width: 15px;
+  height: 15px;
+}
+
+.forma{
+  padding: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 15px;
+  align-items: center;
+}
+.format{
+  display: flex;
+  width: 410px;
+  height: 250px;
+  border: 1px solid #000;
+  padding: 0px 5px;
+  color: #000;
+  background-color: #D6CBCC;
+}
+.post_right{
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 240px;
+  align-items: center;
+}
+.post_left{
+  width: 200px;
+  height: 240px;
+}
+.img_post-2{
+  object-fit: cover;
+  width: 50%;
+  height: 120px;
+  padding-top: 2%;
+  outline: none;
+}
+.moderator-content{
+  height: 100px;
+  border: 1px solid #000;
+  overflow-y: scroll;
+}
+.img_post{
+  object-fit: contain;
+  width: 100%;
+  height: 80%;
+  padding-top: 10%;
+  outline: none;
+}
+.row{
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+}
+
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+.modal-body {
+  padding: 2px 16px;
+  display: flex;
+  flex-direction: column;
+}
+.contact_input_1{
+padding: 10px 20px;
+font-size: 20px;
+margin-bottom: 10px;
+outline: none;
+}
+.contact_input_2{
+padding: 10px 20px;
+font-size: 20px;
+margin-bottom: 10px;
+outline: none;
+}
+.contact_textarea{
+height: 100px;
+padding: 10px 20px;
+font-size: 20px;
+outline: none;
+}
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+  height: 80px;
+}
+.button_save{
+  width: 100px;
+  height: 50px;
+  border: 1px solid #000;
+  font-size: 20px;
+  margin-top: 20px;
+  color: #5cb85c;
+  background-color: #ccc;
+  cursor: pointer;
+}
+.button_reset{
+  margin-left: 330px;
+  width: 100px;
+  height: 30px;
+  border: 1px solid #000;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #C20F30;
+  background-color: #ccc;
+  cursor: pointer;
+}
+.button_reset:hover{
+  background-color: #C20F30;
+  color: #ccc;
+}
+.button_delete{
+  width: 100px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #C20F30;
+}
+.button_redactor{
+  width: 130px;
+  margin-bottom: 10px;
+  color: #63C20F;
+}
+.button_more{
+  width: 130px;
+  margin-bottom: 10px;
+  color: #0FC281;
+}
+.but_img{
+  padding-top: 10px;
+}
+@media ( max-width: 768px ){
+.baza{
+  height: auto;
+}
+.button_center{
+  height: 50px;
+  width: 150px;
+  margin: 10px 0px;
+}
+.row{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+}
+@media (max-width: 449px){
+.format{
+  flex-wrap: wrap;
+  width: auto;
+  height: auto;
+}
+}

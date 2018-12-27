@@ -1,0 +1,61 @@
+.comments{
+  height: 53%;
+  border-top: 1px solid #000;
+}
+.comments-post{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+.comments-postid{
+  height: 85%;
+}
+.comments-text{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.comments-search{
+  display: flex;
+  height: 15%;
+  align-items: center;
+}
+.search{
+  height: 23px;
+  width: 100%;
+}
+.button_search{
+  height: 29px;
+  width: 50px;
+  cursor: pointer;
+}
+.comments-text-user{
+  display: flex;
+  flex-direction: column;
+  height: 85%;
+}
+.comments-get{
+  height: 188px;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+.comments-send{
+  display: flex;
+  height: 17%;
+  align-items: center;
+}
+.send{
+  height: 23px;
+  width: 100%;
+}
+.button_send{
+  height: 29px;
+  width: 50px;
+  cursor: pointer;
+}
+@media ( max-width: 768px){
+.comments{
+  height: 35%;
+}
+}
