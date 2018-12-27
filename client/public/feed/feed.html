@@ -42,6 +42,7 @@
         <img data-ng-if="comment.author.avatarPath" src="{{comment.author.avatarPath}}" class="comment-avatar">
         <img data-ng-if="!comment.author.avatarPath" src="/avas/default.png" class="comment-avatar">
         <div class="feed_coments_text">{{comment.text}}</div>
+        <span class="comment-item-delete-btn" data-ng-click="deleteComment(comment._id, currentPost)" data-ng-if="comment.author._id == user._id">X</span>
       </div>
     </div>
     <div class="feed-comments-send" ng-hide="!$root.authenticated">

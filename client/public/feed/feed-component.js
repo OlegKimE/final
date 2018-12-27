@@ -112,6 +112,7 @@ angular
           var user = $cookies.getObject('user');
           createdComment.author = user;
           $scope.post.comments.push(createdComment);
+          $scope.comments.push(createdComment);
           $scope.commentText = "";
         }
       }).catch(function(error) {
@@ -186,6 +187,18 @@ angular
             $scope.liked = false;
             $scope.likes = $scope.likes - 1;
           }
+        }
+      }).catch(function(error) {
+        console.log('error ', error);
+      })
+    }
+
+    $scope.deleteComment = function(commentId, postId) {
+      var url = '/api/posts/' + postId + '/comments/' + commentId;
+
+      $http.delete(url).then(function(response) {
+        if (response.status == 200) {
+          $scope.comments = $scope.comments.filter(comment => comment._id != commentId);
         }
       }).catch(function(error) {
         console.log('error ', error);
