@@ -67,7 +67,7 @@ router.get('/api/posts/:id', async function(req, res) {
   try {
     var post = await Post.findById(idParam).populate({path: 'comments', populate: {'path': 'author'}}). populate({path: 'author'});
     // console.log('post ', post);
-    // populate('comments').populate('author');
+    
     if (!post) {
       return res.status(400).send('Bad request');
     }

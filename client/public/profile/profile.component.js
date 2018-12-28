@@ -22,7 +22,7 @@ angular
         .then(response => {
           if (response.status === 200) {
             $scope.posts = response.data.posts;
-            console.log($scope.posts)
+            // console.log($scope.posts)
             // for(var i=0; i<36; i++){
             $scope.currentPage = 0;
             $scope.pageSize = 1;

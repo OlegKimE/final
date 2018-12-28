@@ -23,7 +23,7 @@ angular
             $scope.dizlikes = response.data.dizlikes;
             $scope.dizliked = response.data.dizliked;
             $scope.comments = response.data.post.comments;
-            console.log($scope.post.comments)
+            // console.log($scope.post.comments)
           }
         })
         .catch(function(error) {

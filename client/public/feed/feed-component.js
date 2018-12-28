@@ -87,7 +87,7 @@ angular
             $scope.dizliked = response.data.dizliked;
             $scope.comments = response.data.post.comments;
 
-            console.log($scope.comments);
+            // console.log($scope.comments);
           }
         })
         .catch(function(error) {
@@ -96,7 +96,7 @@ angular
       }
       // Сохранение комментария
       $scope.saveComment = function(comment) {
-        console.log('comment', comment);
+        // console.log('comment', comment);
       if (comment.length == 0) {
       return;
       }
@@ -109,9 +109,10 @@ angular
         console.log('response ', response);
         if (response.status == 200) {
           var createdComment = response.data;
+          console.log(createdComment)
           var user = $cookies.getObject('user');
           createdComment.author = user;
-          $scope.post.comments.push(createdComment);
+          // $scope.post.comments.push(createdComment); дает ошибку
           $scope.comments.push(createdComment);
           $scope.commentText = "";
         }
@@ -192,7 +193,7 @@ angular
         console.log('error ', error);
       })
     }
-
+      // удаление комментария
     $scope.deleteComment = function(commentId, postId) {
       var url = '/api/posts/' + postId + '/comments/' + commentId;
 
