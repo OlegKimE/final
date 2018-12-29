@@ -81,10 +81,13 @@ angular
             $scope.author= response.data.post.author;
             $scope.post = response.data.post;
             $scope.likes = response.data.likes;
-
             $scope.liked = response.data.liked;
+
+            console.log(response.data);
             $scope.dizlikes = response.data.dizlikes;
             $scope.dizliked = response.data.dizliked;
+
+
             $scope.comments = response.data.post.comments;
 
             // console.log($scope.comments);

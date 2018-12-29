@@ -25,9 +25,20 @@ try {
     post: postId
   });
   var deletedDizlike = await Dizlike.findOneAndDelete({post: postId, author: userId});
-  var savedLike = await like.save();
-  
-  res.status(201).send(savedLike);
+
+  var likes = await Like.find({
+    author: userId,
+    post: post.id
+  });
+
+  if (likes.length == 0) {
+    var savedLike = await like.save();
+
+    res.status(201).send(savedLike);
+  } else {
+    res.status(400).send();
+  }
+
 } catch (e) {
   console.log('Error ', e);
   res.status(500).send(e);
