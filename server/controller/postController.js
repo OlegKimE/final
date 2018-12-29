@@ -87,11 +87,15 @@ router.get('/api/posts/:id', async function(req, res) {
       dizlikes: dizlikes,
     };
 //проверка что человек лайкал или не лайкал
-    if (userLikedAmount == 0 || userDizlikedAmount == 0) {
+    if (userLikedAmount === 0) {
       response.liked = false;
-      response.dizliked = false;
     } else {
       response.liked = true;
+    }
+
+    if (userDizlikedAmount === 0) {
+      response.dizliked = false;
+    } else {
       response.dizliked = true;
     }
     res.status(200).send(response);
